@@ -9,6 +9,10 @@ class Customer extends Model
 {
     use HasFactory;
 
+    public function orders(){
+        return $this->hasMany(Order::class);
+    }
+    
     public function latestOrder(){
         return $this->hasOne(Order::class)->latestOfMany();
     }
@@ -16,4 +20,17 @@ class Customer extends Model
     public function oldestOrder(){
         return $this->hasOne(Order::class)->oldestOfMany();
     }
+
+    public function largestOrder(){
+        return $this->hasOne(Order::class)->ofMany("price", 'min');
+    }
+
+    public function smallestOrder(){
+        return $this->hasOne(Order::class)->ofMany("price", 'max');
+    }
+
+  
+    
+
+    
 }
