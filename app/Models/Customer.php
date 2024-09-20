@@ -22,11 +22,11 @@ class Customer extends Model
     }
 
     public function largestOrder(){
-        return $this->hasOne(Order::class)->ofMany("price", 'min');
+        return $this->hasOne(Order::class)->ofMany("price", 'max');
     }
 
     public function smallestOrder(){
-        return $this->hasOne(Order::class)->ofMany("price", 'max');
+        return $this->hasOne(Order::class)->ofMany("price", 'min');
     }
 
   
