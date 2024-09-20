@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\EmployeeController;
 use Illuminate\Support\Facades\Route;
 
@@ -8,3 +9,5 @@ use Illuminate\Support\Facades\Route;
 // }
 
 Route::resource('/employee', EmployeeController::class);
+
+Route::resource('/customer', CustomerController::class);
